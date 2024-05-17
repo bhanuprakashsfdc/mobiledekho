@@ -18,13 +18,13 @@ Layout & Navigation
 Task 4: Create a Basic Layout                         -- Done
 
 Implement a basic layout with a header, footer, and main content area.
-Task 5: Design the Header
+Task 5: Design the Header                             -- Done
 
 Create the header component with the MobileDekho logo, navigation menu, and search bar.
-Task 6: Design the Footer
+Task 6: Design the Footer                             -- Done
 
 Create the footer component with links to related ventures, social media icons, and app download links.
-Task 7: Implement React Router
+Task 7: Implement React Router                         -- Done
 
 Set up React Router for navigation between pages.
 Home Page
