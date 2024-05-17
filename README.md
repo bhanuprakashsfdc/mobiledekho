@@ -10,12 +10,12 @@ Set up the project directory structure.
 Task 2: Install Required Dependencies                 -- Done
 
 Install necessary dependencies (e.g., React Router, Axios, Styled-components, etc.).
-Task 3: Set Up Version Control
+Task 3: Set Up Version Control                        -- Done
 
 Initialize a Git repository.
 Set up a repository on GitHub or another version control platform.
 Layout & Navigation
-Task 4: Create a Basic Layout
+Task 4: Create a Basic Layout                         -- Done
 
 Implement a basic layout with a header, footer, and main content area.
 Task 5: Design the Header
