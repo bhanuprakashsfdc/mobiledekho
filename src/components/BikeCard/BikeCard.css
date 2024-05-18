@@ -1,4 +1,4 @@
-.story-card {
+.bike-card {
     background: #fff;
     border: 1px solid #ddd;
     padding: 1rem;
@@ -7,23 +7,23 @@
     transition: transform 0.3s;
   }
   
-  .story-card img {
+  .bike-card img {
     width: 100%;
     height: auto;
     border-radius: 8px 8px 0 0;
   }
   
-  .story-card h3 {
+  .bike-card h3 {
     margin: 1rem 0 0.5rem;
     font-size: 1.5rem;
   }
   
-  .story-card p {
+  .bike-card p {
     font-size: 1rem;
     color: #666;
   }
   
-  .story-card:hover {
+  .bike-card:hover {
     transform: scale(1.05);
   }
   

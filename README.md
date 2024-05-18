@@ -18,33 +18,33 @@ Layout & Navigation
 Task 4: Create a Basic Layout                         -- Done
 
 Implement a basic layout with a header, footer, and main content area.
-Task 5: Design the Header
+Task 5: Design the Header                             -- Done
 
 Create the header component with the MobileDekho logo, navigation menu, and search bar.
-Task 6: Design the Footer
+Task 6: Design the Footer                             -- Done
 
 Create the footer component with links to related ventures, social media icons, and app download links.
-Task 7: Implement React Router
+Task 7: Implement React Router                         -- Done
 
 Set up React Router for navigation between pages.
 Home Page
-Task 8: Design the Home Page Layout
+Task 8: Design the Home Page Layout                    -- Done
 
 Create the main layout for the home page.
-Task 9: Implement Featured Reviews Section
+Task 9: Implement Featured Reviews Section             -- Done
 
 Create a carousel component for featured reviews on the home page.
-Task 10: Implement Latest Reviews Section
+Task 10: Implement Latest Reviews Section              -- Done
 
 Create a grid layout for displaying the latest reviews.
 Reviews Page
-Task 11: Design Reviews Page Layout
+Task 11: Design Reviews Page Layout                    -- Done
 
 Create the layout for the reviews page.
-Task 12: Implement Reviews List
+Task 12: Implement Reviews List                        -- Done
 
 Fetch and display a list of bike and scooter reviews.
-Task 13: Implement Review Detail Page
+Task 13: Implement Review Detail Page                  -- Done
 
 Create a detailed review page for individual reviews.
 Search Functionality
