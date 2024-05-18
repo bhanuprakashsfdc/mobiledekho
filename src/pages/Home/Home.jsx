@@ -6,7 +6,11 @@ import BikeCard from '../../components/BikeCard/BikeCard';
 import splender from '../../assets/images/hero/hero-splender.jpeg'
 import mt15 from '../../assets/images/yamaha/yamaha_mt_15.jpeg'
 import classic350 from '../../assets/images/royal_enfield/classic_350.jpeg'
-
+/* For Electric images */
+import s1 from '../../assets/images/electric/ola/s1pro.jpeg';
+import iqube from '../../assets/images/electric/tvs/iqube.jpeg';
+import x450 from '../../assets/images/electric/ather/450.jpeg';
+import chetak from '../../assets/images/electric/bajaj/chetak.jpeg';
 const Home = () => {
   return (
     <div className="home">
@@ -44,9 +48,28 @@ const Home = () => {
       </section>
       <section className="electric-zone">
         <h2>Electric Zone</h2>
-        <div className="electric-list">
-          {/* Electric bike/scooter cards go here */}
-        </div>
+        <div className="bike-list">
+          <BikeCard
+              image={s1}
+              name="Ola s1"
+              description="Details about ."
+            />
+            <BikeCard
+              image={iqube}
+              name="iqube"
+              description="Details about ."
+            />
+            <BikeCard
+              image={x450}
+              name="Ather 450X"
+              description="Details about Bike 3."
+            />
+            <BikeCard
+              image={chetak}
+              name="Bajaj Chetak"
+              description="Details about Bike 3."
+            />
+          </div>
       </section>
       <section className="latest-bikes">
         <h2>Latest Bikes</h2>
