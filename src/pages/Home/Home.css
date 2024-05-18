@@ -1,6 +1,10 @@
 .home {
   padding: 2rem;
 }
+.home-grid{
+  padding-left: 5%;
+  padding-right: 5%;
+}
 
 .hero {
   background-image: url('../../assets/images/banner/pulsar_banner.jpeg');
@@ -85,11 +89,14 @@ h2 {
 .upcoming-list,
 .comparison-list,
 .second-hand-list,
-.news-list,
 .stories-list {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);;
+  grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
+}
+
+.news-list {
+  grid-template-columns: repeat(2, 1fr);
 }
 
 .bike-list div,
@@ -121,10 +128,20 @@ h2 {
   transform: scale(1.05);
 }
 
-.bike-list {
+.bike-list,
+.electric-list,
+.latest-list,
+.test-ride-list,
+.upcoming-list,
+.comparison-list,
+.second-hand-list,
+.news-list,
+.stories-list {
   display: flex;
-  grid-template-columns: repeat(1, 1fr);
+  grid-template-columns: repeat(, 1fr);
 }
+
+
 
 @media (max-width: 768px) {
   .home {
@@ -148,7 +165,15 @@ h2 {
     font-size: 1.5rem;
   }
 
-  .bike-list {
+  .bike-list,
+  .electric-list,
+  .latest-list,
+  .test-ride-list,
+  .upcoming-list,
+  .comparison-list,
+  .second-hand-list,
+  .news-list,
+  .stories-list  {
     grid-template-columns: repeat(2, 1fr);
   }
 }
