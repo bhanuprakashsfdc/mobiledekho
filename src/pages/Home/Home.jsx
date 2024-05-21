@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Home.css';
 /* Importing other components */
+import Header from '../../components/Header/Header'
 import BikeCard from '../../components/BikeCard/BikeCard';
 import StoryCard from '../../components/WebStories/WebStories';
 import NewsCard from '../../components/BikeNews/BikeNews';
+
 /* Images Importing */
 import splender from '../../assets/images/hero/hero-splender.jpeg'
 import mt15 from '../../assets/images/yamaha/yamaha_mt_15.jpeg'
@@ -13,190 +15,153 @@ import s1 from '../../assets/images/electric/ola/s1pro.jpeg';
 import iqube from '../../assets/images/electric/tvs/iqube.jpeg';
 import x450 from '../../assets/images/electric/ather/450.jpeg';
 import chetak from '../../assets/images/electric/bajaj/chetak.jpeg';
-const Home = () => {
+/* Importing mock data */
+import {bikes} from '../../data/bikes';
+
+const Home = (user, setUser) => {
+  const [searchQuery, setSearchQuery] = useState('');
+  const [searchResults, setSearchResults] = useState([]);
+
+  const handleSearch = (query) => {
+    if (query) {
+      const results = bikes.filter(
+        (bike) => bike.name.toLowerCase().includes(query.toLowerCase())
+      );
+      setSearchResults(results);
+    } else {
+      setSearchResults([]);
+    }
+  };
+
+  React.useEffect(() => {
+    handleSearch(searchQuery);
+  }, [searchQuery]);
+
+
+
   return (
     <div className="home">
-      <section className="hero">
-        <div className="hero-content">
-          <h1>Find Your Dream Bike</h1>
-          <p>Explore the best bikes and scooters in the market.</p>
-          <button className="cta-button">Get Started</button>
-        </div>
+      <Header setSearchQuery={setSearchQuery} user={user} setUser={setUser} />
+        <section className="hero">
+          <div className="hero-content">
+            <h1>Find Your Dream Bike</h1>
+            <p>Explore the best bikes and scooters in the market.</p>
+            <button className="cta-button">Get Started</button>
+          </div>
         </section>
         <div className="home-grid">
+        {searchQuery && (
+        <section className="search-results">
+          <h2>Search Results</h2>
+          <div className="bike-list">
+            {searchResults.map((bike) => (
+              <BikeCard
+              key={bike.id}
+              id={bike.id}
+              image={bike.image}
+              name={bike.name}
+              description={bike.description}
+              />
+            ))}
+          </div>
+        </section>
+      )}
         <section className="spotlight">
           <h2>Bikes in Spotlight</h2>
           <div className="bike-list">
-          <BikeCard
-              image={splender}
-              name="Hero Splender"
-              description="Details about ."
-            />
-            <BikeCard
-              image={mt15}
-              name="Bike 2"
-              description="Details about ."
-            />
-            <BikeCard
-              image={classic350}
-              name="Bike 3"
-              description="Details about Bike 3."
-            />
-            <BikeCard
-              image={classic350}
-              name="Bike 3"
-              description="Details about Bike 3."
-            />
+            {bikes.map((bike) => (
+              <BikeCard
+                key={bike.id}
+                id={bike.id}
+                image={bike.image}
+                name={bike.name}
+                description={bike.description}
+              />
+            ))}
           </div>
         </section>
         <section className="electric-zone">
           <h2>Electric Zone</h2>
-          <div className="electric-list">
-            <BikeCard
-                image={s1}
-                name="Ola s1"
-                description="Details about ."
-              />
+          <div className="bike-list">
+            {bikes.filter((bike) => bike.name.toLowerCase().includes('electric')).map((bike) => (
               <BikeCard
-                image={iqube}
-                name="iqube"
-                description="Details about ."
+                key={bike.id}
+                id={bike.id}
+                image={bike.image}
+                name={bike.name}
+                description={bike.description}
               />
-              <BikeCard
-                image={x450}
-                name="Ather 450X"
-                description="Details about Bike 3."
-              />
-              <BikeCard
-                image={chetak}
-                name="Bajaj Chetak"
-                description="Details about Bike 3."
-              />
+            ))}
             </div>
         </section>
         <section className="latest-bikes">
           <h2>Latest Bikes</h2>
-          <div className="latest-list">
-          <BikeCard
-                image={s1}
-                name="Ola s1"
-                description="Details about ."
-              />
-              <BikeCard
-                image={iqube}
-                name="iqube"
-                description="Details about ."
-              />
-              <BikeCard
-                image={x450}
-                name="Ather 450X"
-                description="Details about Bike 3."
-              />
-              <BikeCard
-                image={chetak}
-                name="Bajaj Chetak"
-                description="Details about Bike 3."
-              />
+          <div className="bike-list">
+              {bikes.filter((bike) => bike.name.toLowerCase().includes('latest')).map((bike) => (
+                <BikeCard
+                  key={bike.id}
+                  id={bike.id}
+                  image={bike.image}
+                  name={bike.name}
+                  description={bike.description}
+                />
+              ))}
           </div>
         </section>
         <section className="test-rides">
           <h2>Test Rides Available</h2>
-          <div className="test-ride-list">
-          <BikeCard
-                image={s1}
-                name="Ola s1"
-                description="Details about ."
-              />
-              <BikeCard
-                image={iqube}
-                name="iqube"
-                description="Details about ."
-              />
-              <BikeCard
-                image={x450}
-                name="Ather 450X"
-                description="Details about Bike 3."
-              />
-              <BikeCard
-                image={chetak}
-                name="Bajaj Chetak"
-                description="Details about Bike 3."
-              />
+          <div className="bike-list">
+              {bikes.filter((bike) => bike.name.toLowerCase().includes('test')).map((bike) => (
+                <BikeCard
+                  key={bike.id}
+                  id={bike.id}
+                  image={bike.image}
+                  name={bike.name}
+                  description={bike.description}
+                />
+              ))}
           </div>
         </section>
         <section className="upcoming-bikes">
           <h2>Upcoming Bikes</h2>
-          <div className="upcoming-list">
-          <BikeCard
-                image={s1}
-                name="Ola s1"
-                description="Details about ."
-              />
+          <div className="bike-list">
+            {bikes.filter((bike) => bike.name.toLowerCase().includes('upcoming')).map((bike) => (
               <BikeCard
-                image={iqube}
-                name="iqube"
-                description="Details about ."
+                key={bike.id}
+                id={bike.id}
+                image={bike.image}
+                name={bike.name}
+                description={bike.description}
               />
-              <BikeCard
-                image={x450}
-                name="Ather 450X"
-                description="Details about Bike 3."
-              />
-              <BikeCard
-                image={chetak}
-                name="Bajaj Chetak"
-                description="Details about Bike 3."
-              />
+            ))}
           </div>
         </section>
         <section className="popular-comparisons">
           <h2>Popular Comparisons</h2>
           <div className="comparison-list">
-          <BikeCard
-                image={s1}
-                name="Ola s1"
-                description="Details about ."
-              />
+            {bikes.filter((bike) => bike.name.toLowerCase().includes('comparison')).map((bike) => (
               <BikeCard
-                image={iqube}
-                name="iqube"
-                description="Details about ."
+                key={bike.id}
+                id={bike.id}
+                image={bike.image}
+                name={bike.name}
+                description={bike.description}
               />
-              <BikeCard
-                image={x450}
-                name="Ather 450X"
-                description="Details about Bike 3."
-              />
-              <BikeCard
-                image={chetak}
-                name="Bajaj Chetak"
-                description="Details about Bike 3."
-              />
+            ))}
           </div>
         </section>
         <section className="second-hand-bikes">
           <h2>Trusted Second Hand Bikes by Budget</h2>
           <div className="second-hand-list">
-          <BikeCard
-                image={s1}
-                name="Ola s1"
-                description="Details about ."
-              />
+            {bikes.filter((bike) => bike.name.toLowerCase().includes('secondhand')).map((bike) => (
               <BikeCard
-                image={iqube}
-                name="iqube"
-                description="Details about ."
+                key={bike.id}
+                id={bike.id}
+                image={bike.image}
+                name={bike.name}
+                description={bike.description}
               />
-              <BikeCard
-                image={x450}
-                name="Ather 450X"
-                description="Details about Bike 3."
-              />
-              <BikeCard
-                image={chetak}
-                name="Bajaj Chetak"
-                description="Details about Bike 3."
-              />
+            ))}
           </div>
         </section>
         <section className="bike-news">

@@ -2,36 +2,42 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../Auth/Auth.css';
 
-const Login = ({ setUser }) => {
+const Register = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [email, setEmail] = useState('');
   const navigate = useNavigate();
 
-  const handleLogin = async (e) => {
+  const handleRegister = async (e) => {
     e.preventDefault();
-    const response = await fetch('https://api.example.com/login', {
+    const response = await fetch('https://api.example.com/register', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ username, password }),
+      body: JSON.stringify({ username, password, email }),
     });
     if (response.ok) {
-      const data = await response.json();
-      setUser(data.user);
-      navigate('/');
+      navigate('/login');
     } else {
-      alert('Login failed');
+      alert('Registration failed');
     }
   };
 
   return (
     <div className="auth-container">
-      <h2>Login</h2>
-      <form onSubmit={handleLogin}>
+      <h2>Register</h2>
+      <form onSubmit={handleRegister}>
         <input
           type="text"
           placeholder="Username"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
+          required
+        />
+        <input
+          type="email"
+          placeholder="Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
           required
         />
         <input
@@ -41,11 +47,10 @@ const Login = ({ setUser }) => {
           onChange={(e) => setPassword(e.target.value)}
           required
         />
-        <button type="submit">Login</button>
+        <button type="submit">Register</button>
       </form>
-      
     </div>
   );
 };
 
-export default Login;
+export default Register;
