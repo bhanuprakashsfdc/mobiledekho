@@ -1,0 +1,48 @@
+.comparison {
+    padding: 2rem;
+  }
+  
+  .comparison h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  
+  .comparison-table {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  
+  .comparison-row {
+    display: flex;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .comparison-row:last-child {
+    border-bottom: none;
+  }
+  
+  .comparison-cell {
+    flex: 1;
+    padding: 1rem;
+    text-align: center;
+    border-right: 1px solid #ddd;
+  }
+  
+  .comparison-cell:last-child {
+    border-right: none;
+  }
+  
+  .comparison-cell h3,
+  .comparison-cell h4 {
+    margin: 0 0 0.5rem;
+    color: #333;
+  }
+  
+  .comparison-cell p {
+    margin: 0;
+    color: #666;
+  }
+  

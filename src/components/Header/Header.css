@@ -130,6 +130,15 @@
     cursor: pointer;
   }
   
+  .header-links a {
+    margin-left: 1rem;
+    color: #333;
+    text-decoration: none;
+  }
+  
+  .header-links a:hover {
+    color: #ff3d00;
+  }
   @media (max-width: 768px) {
     .header-top {
       flex-wrap: wrap;

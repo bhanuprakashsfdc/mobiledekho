@@ -1,0 +1,103 @@
+.bike-details {
+    padding: 2rem;
+  }
+  
+  .bike-details-header {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
+  }
+  
+  .bike-details-header img {
+    width: 300px;
+    height: auto;
+    border-radius: 8px;
+  }
+  
+  .bike-details-header h1 {
+    font-size: 2rem;
+    color: #333;
+  }
+  
+  .bike-specifications {
+    margin-bottom: 2rem;
+  }
+  
+  .bike-specifications h2 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 1rem;
+  }
+  
+  .bike-specifications ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .bike-specifications li {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 0.5rem;
+  }
+  
+  .bike-reviews {
+    margin-bottom: 2rem;
+  }
+  
+  .bike-reviews h2 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 1rem;
+  }
+  
+  .bike-reviews .review {
+    border: 1px solid #ddd;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+  }
+  
+  .bike-reviews .review h3 {
+    font-size: 1.25rem;
+    color: #333;
+    margin-bottom: 0.5rem;
+  }
+  
+  .bike-reviews .review p {
+    font-size: 1rem;
+    color: #666;
+  }
+  
+  .related-bikes {
+    margin-bottom: 2rem;
+  }
+  
+  .related-bikes h2 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 1rem;
+  }
+  
+  .related-bikes .related-bikes-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+  
+  .related-bike-card {
+    text-align: center;
+  }
+  
+  .related-bike-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+  
+  .related-bike-card h3 {
+    font-size: 1.25rem;
+    color: #333;
+    margin-top: 0.5rem;
+  }
+  
