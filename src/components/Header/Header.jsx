@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './Header.css';
 
-const Header = () => {
+const Header = ({ setSearchQuery, user, setUser }) => {
   const [isNavOpen, setIsNavOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
 
@@ -22,6 +22,11 @@ const Header = () => {
     setActiveDropdown(null);
   };
 
+  const navigate = useNavigate();
+  const handleLogout = () => {
+    setUser(null);
+    navigate('/');
+  };
   return (
     <header className="header">
       <div className="header-top">
@@ -29,7 +34,10 @@ const Header = () => {
           <Link to="/">MobileDekho</Link>
         </div>
         <div className="search">
-          <input type="text" placeholder="Search Bikes or Scooters..." />
+          <input type="text" 
+                 placeholder="Search Bikes or Scooters..." 
+                 onChange={(e) => setSearchQuery(e.target.value)}
+                 />
           <button>Search</button>
         </div>
         <div className="language-dropdown">
@@ -39,7 +47,17 @@ const Header = () => {
           </select>
         </div>
         <div className="auth">
-          <Link to="/login">Login / Register</Link>
+          {user ? (
+            <>
+              <span>Welcome, {user.username}</span>
+              <button onClick={handleLogout}>Logout</button>
+            </>
+          ) : (
+            <>
+              <Link to="/login">Login</Link>
+              <Link to="/register">Register</Link>
+            </>
+          )}
         </div>
         <div className="city-select">
           <a href="#select-city">Select City</a>

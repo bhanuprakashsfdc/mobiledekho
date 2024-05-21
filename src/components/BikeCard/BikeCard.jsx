@@ -1,12 +1,15 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './BikeCard.css';
 
-const BikeCard = ({ image, name, description }) => {
+const BikeCard = ({id,image, name, description }) => {
   return (
     <div className="bike-card">
-      <img src={image} alt={name} />
-      <h3>{name}</h3>
-      <p>{description}</p>
+      <Link to={`/bike/${id}`}>
+        <img src={image} alt={name} />
+        <h3>{name}</h3>
+        <p>{description}</p>
+      </Link>
     </div>
   );
 };
