@@ -9,6 +9,7 @@ const BikeCard = ({id,image, name, description }) => {
         <img src={image} alt={name} />
         <h3>{name}</h3>
         <p>{description}</p>
+        <button onClick={() => addToCompare(id)}>Compare</button>
       </Link>
     </div>
   );

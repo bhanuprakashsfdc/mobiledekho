@@ -4,7 +4,8 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import ErrorPage from './components/ErrorPage/ErrorPage';
-import AdminPanel from './components/AdminPanel/AdminPanel'
+import AdminPanel from './components/AdminPanel/AdminPanel';
+import WishList from './components/Wishlist/Wishlist';
 
 /* Pages */
 import Home from './pages/Home/Home';
@@ -45,7 +46,8 @@ const App = () => {
                   <Route path="/search" element={<SearchResults />} />
                   <Route path="/register" element={<Register />} />
                   <Route path="/profile" element={<UserProfile user={user} setUser={setUser} />} />
-                  <Route path="/Comparison" element={<Comparison />} />
+                  <Route path="/comparison" element={<Comparison />} />
+                  <Route path="/wishlist" element={<WishList user={user} />} />
                   
                   <Route path="/about" element={<About />} />
                   <Route path="/contact" element={<Contact />} />

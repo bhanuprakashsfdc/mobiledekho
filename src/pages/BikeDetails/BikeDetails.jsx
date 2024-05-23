@@ -6,7 +6,7 @@ import Reviews from '../../components/Reviews/Reviews'; // Import Reviews compon
 import ReviewForm from '../../components/ReviewForm/ReviewForm'; // Import ReviewForm component
 import BookingForm from '../../components/BookingForm/BookingForm'; // Import BookingForm component
 
-const BikeDetails = ({ user }) => {
+const BikeDetails = ({ user, addToCompare }) => {
   const { id } = useParams();
   const [bike, setBike] = useState(null);
   const [wishlistAdded, setWishlistAdded] = useState(false);
@@ -40,6 +40,9 @@ const BikeDetails = ({ user }) => {
           <button onClick={addToWishlist}>Add to Wishlist</button>
         )}
         {wishlistAdded && <p>Added to Wishlist</p>}
+        {user && (
+          <button onClick={() => addToCompare(bike.id)}>Add to Compare</button>
+        )}
       </div>
       <div className="bike-specifications">
         <h2>Specifications</h2>

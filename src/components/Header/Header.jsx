@@ -3,12 +3,15 @@ import { Link, useNavigate } from 'react-router-dom';
 import './Header.css';
 import SearchBar from '../SearchBar/SearchBar';
 import Notifications from '../Notifications/Notifications';
+import Chat from '../Chat/Chat';
 
 const Header = ({ setSearchQuery, user, setUser }) => {
   const [isNavOpen, setIsNavOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
   /* Notifictions */
   const [showNotifications, setShowNotifications] = useState(false);
+  /* Chat popup */
+  const [showChat, setShowChat] = useState(false);
   const toggleNav = () => {
     setIsNavOpen(!isNavOpen);
   };
@@ -61,6 +64,8 @@ const Header = ({ setSearchQuery, user, setUser }) => {
                 Notifications
               </button>
               {showNotifications && <Notifications user={user} />}
+              <button onClick={() => setShowChat(!showChat)}>Chat</button>
+               {showChat && <Chat user={user} />}
             </>
           ) : (
             <>

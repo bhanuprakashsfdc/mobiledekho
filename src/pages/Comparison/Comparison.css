@@ -1,48 +1,40 @@
 .comparison {
-    padding: 2rem;
-  }
-  
-  .comparison h2 {
-    text-align: center;
-    margin-bottom: 2rem;
-  }
-  
-  .comparison-table {
-    display: flex;
-    flex-direction: column;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    overflow: hidden;
-  }
-  
-  .comparison-row {
-    display: flex;
-    border-bottom: 1px solid #ddd;
-  }
-  
-  .comparison-row:last-child {
-    border-bottom: none;
-  }
-  
-  .comparison-cell {
-    flex: 1;
-    padding: 1rem;
-    text-align: center;
-    border-right: 1px solid #ddd;
-  }
-  
-  .comparison-cell:last-child {
-    border-right: none;
-  }
-  
-  .comparison-cell h3,
-  .comparison-cell h4 {
-    margin: 0 0 0.5rem;
-    color: #333;
-  }
-  
-  .comparison-cell p {
-    margin: 0;
-    color: #666;
-  }
-  
+  padding: 2rem;
+}
+
+.comparison h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.comparison-table {
+  display: flex;
+  justify-content: space-around;
+  gap: 1rem;
+}
+
+.comparison-column {
+  border: 1px solid #ddd;
+  padding: 1rem;
+  border-radius: 8px;
+  width: 200px;
+  text-align: center;
+}
+
+.comparison-column img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.comparison-column h3 {
+  margin: 1rem 0;
+}
+
+.comparison-column ul {
+  list-style: none;
+  padding: 0;
+}
+
+.comparison-column li {
+  margin-bottom: 0.5rem;
+}
