@@ -5,6 +5,7 @@ import { bikes } from '../../data/bikes'; // Ensure correct import
 import Reviews from '../../components/Reviews/Reviews'; // Import Reviews component
 import ReviewForm from '../../components/ReviewForm/ReviewForm'; // Import ReviewForm component
 import BookingForm from '../../components/BookingForm/BookingForm'; // Import BookingForm component
+import SocialMediaShare from '../../components/SocialMediaShare/SocialMediaShare';
 
 const BikeDetails = ({ user, addToCompare }) => {
   const { id } = useParams();
@@ -30,6 +31,9 @@ const BikeDetails = ({ user, addToCompare }) => {
   if (!bike) {
     return <div>Loading...</div>;
   }
+  
+  const bikeUrl = `${window.location.origin}/bike/${bike.id}`;
+  const bikeTitle = bike.name;
 
   return (
     <div className="bike-details">
@@ -43,6 +47,7 @@ const BikeDetails = ({ user, addToCompare }) => {
         {user && (
           <button onClick={() => addToCompare(bike.id)}>Add to Compare</button>
         )}
+        <SocialMediaShare url={bikeUrl} title={bikeTitle} />
       </div>
       <div className="bike-specifications">
         <h2>Specifications</h2>
