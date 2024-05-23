@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Home.css';
 /* Importing other components */
 import Header from '../../components/Header/Header'
 import BikeCard from '../../components/BikeCard/BikeCard';
 import StoryCard from '../../components/WebStories/WebStories';
 import NewsCard from '../../components/BikeNews/BikeNews';
+import Pagination from '../../components/Pagination/Pagination';
 
 /* Images Importing */
 import splender from '../../assets/images/hero/hero-splender.jpeg'
@@ -18,26 +19,33 @@ import chetak from '../../assets/images/electric/bajaj/chetak.jpeg';
 /* Importing mock data */
 import {bikes} from '../../data/bikes';
 
-const Home = (user, setUser) => {
+const Home = ({ user, setUser }) => {
   const [searchQuery, setSearchQuery] = useState('');
   const [searchResults, setSearchResults] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const bikesPerPage = 4; // Number of bikes to display per page
 
-  const handleSearch = (query) => {
-    if (query) {
-      const results = bikes.filter(
-        (bike) => bike.name.toLowerCase().includes(query.toLowerCase())
-      );
-      setSearchResults(results);
-    } else {
-      setSearchResults([]);
-    }
-  };
+  useEffect(() => {
+    const handleSearch = (query) => {
+      if (query) {
+        const results = bikes.filter((bike) =>
+          bike.name.toLowerCase().includes(query.toLowerCase())
+        );
+        setSearchResults(results);
+      } else {
+        setSearchResults(bikes);
+      }
+    };
 
-  React.useEffect(() => {
     handleSearch(searchQuery);
   }, [searchQuery]);
 
+  const totalPages = Math.ceil(searchResults.length / bikesPerPage);
 
+  const currentBikes = searchResults.slice(
+    (currentPage - 1) * bikesPerPage,
+    currentPage * bikesPerPage
+  );
 
   return (
     <div className="home">
@@ -54,22 +62,27 @@ const Home = (user, setUser) => {
         <section className="search-results">
           <h2>Search Results</h2>
           <div className="bike-list">
-            {searchResults.map((bike) => (
-              <BikeCard
-              key={bike.id}
-              id={bike.id}
-              image={bike.image}
-              name={bike.name}
-              description={bike.description}
-              />
-            ))}
+              {searchResults.map((bike) => (
+                <BikeCard
+                key={bike.id}
+                id={bike.id}
+                image={bike.image}
+                name={bike.name}
+                description={bike.description}
+                />
+              ))}
           </div>
+          <Pagination
+            currentPage={currentPage}
+            totalPages={totalPages}
+            onPageChange={setCurrentPage}
+          />
         </section>
       )}
         <section className="spotlight">
           <h2>Bikes in Spotlight</h2>
           <div className="bike-list">
-            {bikes.map((bike) => (
+          {currentBikes.map((bike) => (
               <BikeCard
                 key={bike.id}
                 id={bike.id}
@@ -79,6 +92,11 @@ const Home = (user, setUser) => {
               />
             ))}
           </div>
+          <Pagination
+            currentPage={currentPage}
+            totalPages={totalPages}
+            onPageChange={setCurrentPage}
+          />
         </section>
         <section className="electric-zone">
           <h2>Electric Zone</h2>

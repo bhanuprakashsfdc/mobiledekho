@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import './Header.css';
+import SearchBar from '../SearchBar/SearchBar';
 
 const Header = ({ setSearchQuery, user, setUser }) => {
   const [isNavOpen, setIsNavOpen] = useState(false);
@@ -33,6 +34,8 @@ const Header = ({ setSearchQuery, user, setUser }) => {
         <div className="logo">
           <Link to="/">MobileDekho</Link>
         </div>
+        <SearchBar setSearchQuery={setSearchQuery} />
+        {/*
         <div className="search">
           <input type="text" 
                  placeholder="Search Bikes or Scooters..." 
@@ -40,6 +43,7 @@ const Header = ({ setSearchQuery, user, setUser }) => {
                  />
           <button>Search</button>
         </div>
+        */}
         <div className="language-dropdown">
           <select>
             <option value="en">English</option>
