@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
 /* Components */
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
@@ -25,11 +25,19 @@ import Login from './pages/Login/Login';
 import Register from './pages/Register/Register';
 import UserProfile from './pages/UserProfile/UserProfile';
 import UserManagement from './pages/UserManagement/UserManagement'; 
+/* Analytics */
+import { trackPageView } from './utils/analytics';
 
 import './App.css';
 
 const App = () => {
   const [user, setUser] = useState(null);
+  /* GA Code */
+  const location = useLocation();
+
+  useEffect(() => {
+    trackPageView(location.pathname);
+  }, [location]);
 
   return (
     <Router>
