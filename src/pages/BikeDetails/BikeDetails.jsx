@@ -4,7 +4,7 @@ import './BikeDetails.css';
 import { bikes } from '../../data/bikes'; // Import mock data
 import Reviews from '../../components/Reviews/Reviews'; // Import Reviews component
 import ReviewForm from '../../components/ReviewForm/ReviewForm'; // Import ReviewForm component
-
+import BookingForm from '../../components/BookingForm/BookingForm'; // Import BookingForm component
 
 const BikeDetails = () => {
   const { id } = useParams();
@@ -64,6 +64,7 @@ const BikeDetails = () => {
       </div>
       <Reviews reviews={bike.reviews} /> {/* Display reviews */}
       <ReviewForm bikeId={id} addReview={addReview} /> {/* Form to submit new reviews */}
+      <BookingForm bikeId={id} bikeName={bike.name} />
     </div>
   );
 };
