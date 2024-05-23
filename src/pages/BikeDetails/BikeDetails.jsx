@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+/* import { useTranslation } from 'react-i18next'; */
+
 import './BikeDetails.css';
 import { bikes } from '../../data/bikes'; // Ensure correct import
 import Reviews from '../../components/Reviews/Reviews'; // Import Reviews component
@@ -9,6 +11,7 @@ import SocialMediaShare from '../../components/SocialMediaShare/SocialMediaShare
 
 const BikeDetails = ({ user, addToCompare }) => {
   const { id } = useParams();
+ /* const { t } = useTranslation(); */
   const [bike, setBike] = useState(null);
   const [wishlistAdded, setWishlistAdded] = useState(false);
 

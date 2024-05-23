@@ -5,3 +5,4 @@
 4. routing is not working on images
 5. Comparision is not working due to data modifircation
 6. Using dummy api which data is not generating lets jump to create new
+7. Language Transalation has bugs with " import { initReactI18next } from 'react-i18next';"

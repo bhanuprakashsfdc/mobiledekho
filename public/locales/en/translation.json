@@ -1,0 +1,20 @@
+{
+    "welcome": "Welcome",
+    "login": "Login",
+    "register": "Register",
+    "selectCity": "Select City",
+    "addToWishlist": "Add to Wishlist",
+    "addedToWishlist": "Added to Wishlist",
+    "compare": "Compare",
+    "bookTestRide": "Book a Test Ride or Purchase",
+    "specifications": "Specifications",
+    "engine": "Engine",
+    "power": "Power",
+    "torque": "Torque",
+    "mileage": "Mileage",
+    "price": "Price",
+    "reviews": "Reviews",
+    "addReview": "Add Review",
+    "submit": "Submit"
+  }
+  

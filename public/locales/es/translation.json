@@ -1,0 +1,20 @@
+{
+    "welcome": "Bienvenido",
+    "login": "Iniciar sesión",
+    "register": "Registrarse",
+    "selectCity": "Seleccionar ciudad",
+    "addToWishlist": "Agregar a la lista de deseos",
+    "addedToWishlist": "Agregado a la lista de deseos",
+    "compare": "Comparar",
+    "bookTestRide": "Reservar una prueba o compra",
+    "specifications": "Especificaciones",
+    "engine": "Motor",
+    "power": "Potencia",
+    "torque": "Par",
+    "mileage": "Kilometraje",
+    "price": "Precio",
+    "reviews": "Reseñas",
+    "addReview": "Agregar reseña",
+    "submit": "Enviar"
+  }
+  

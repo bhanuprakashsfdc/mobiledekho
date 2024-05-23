@@ -27,18 +27,22 @@ import UserProfile from './pages/UserProfile/UserProfile';
 import UserManagement from './pages/UserManagement/UserManagement'; 
 /* Analytics */
 import { trackPageView } from './utils/analytics';
-
+/* Language Translation 
+import { useTranslation } from 'react-i18next';
+*/
 import './App.css';
 
 const App = () => {
   const [user, setUser] = useState(null);
-  /* GA Code */
+  /* GA Code 
   const location = useLocation();
 
   useEffect(() => {
     trackPageView(location.pathname);
   }, [location]);
-
+  
+  const { t } = useTranslation();
+*/
   return (
     <Router>
           <div className="App">

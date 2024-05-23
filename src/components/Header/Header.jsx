@@ -3,9 +3,11 @@ import { Link, useNavigate } from 'react-router-dom';
 import './Header.css';
 import SearchBar from '../SearchBar/SearchBar';
 import Notifications from '../Notifications/Notifications';
+import LanguageSwitcher from '../LanguageSwitcher/LanguageSwitcher';
 import Chat from '../Chat/Chat';
 
 const Header = ({ setSearchQuery, user, setUser }) => {
+ /* const { t } = useTranslation(); */
   const [isNavOpen, setIsNavOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
   /* Notifictions */
