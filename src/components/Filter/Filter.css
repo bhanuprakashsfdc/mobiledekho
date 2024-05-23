@@ -1,5 +1,7 @@
 .filter {
     margin-bottom: 1rem;
+    width: 30%;
+    display: inline-block;
   }
   
   .filter h3 {
