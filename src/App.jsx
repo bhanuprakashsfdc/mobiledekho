@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 /* Components */
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
+import ErrorPage from './components/ErrorPage/ErrorPage';
 
 /* Pages */
 import Home from './pages/Home/Home';
@@ -42,13 +43,15 @@ const App = () => {
                   <Route path="/search" element={<SearchResults />} />
                   <Route path="/register" element={<Register />} />
                   <Route path="/profile" element={<UserProfile user={user} setUser={setUser} />} />
-                  <Route path="/comparison" element={<Comparison />} />
+                  <Route path="/Comparison" element={<Comparison />} />
                   
                   <Route path="/about" element={<About />} />
                   <Route path="/contact" element={<Contact />} />
                   <Route path="/terms-and-conditions" element={<Terms />} />
                   <Route path="/privacy-policy" element={<Privacy />} />
                   <Route path="/feedback" element={<Feedback />} />
+
+                  <Route path="*" element={<ErrorPage />} />
                  
                 </Routes>
               </main>
