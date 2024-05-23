@@ -1,0 +1,25 @@
+.analytics-dashboard {
+    padding: 2rem;
+  }
+  
+  .analytics-dashboard h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  
+  .analytics-dashboard table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .analytics-dashboard th,
+  .analytics-dashboard td {
+    padding: 1rem;
+    border: 1px solid #ddd;
+    text-align: left;
+  }
+  
+  .analytics-dashboard th {
+    background-color: #f9f9f9;
+  }
+  

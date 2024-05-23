@@ -152,6 +152,10 @@ h2 {
   border: 1px solid #ddd;
   border-radius: 4px;
 }
+.Filter-view{
+  width: 30%;
+  display: inline-block;
+}
 
 @media (max-width: 768px) {
   .home {

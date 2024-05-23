@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './Home.css';
+import '../../components/Filter/Filter.css';
 /* Importing other components */
 import Header from '../../components/Header/Header'
 import BikeCard from '../../components/BikeCard/BikeCard';
@@ -95,16 +96,19 @@ const Home = ({ user, setUser }) => {
           selectedBrand={selectedBrand}
           setSelectedBrand={setSelectedBrand}
           brands={brands}
+          className='Filter-view'
         />
         <EngineFilter
           selectedEngine={selectedEngine}
           setSelectedEngine={setSelectedEngine}
           engines={engines}
+          className='Filter-view'
         />
         <PriceFilter
           selectedPrice={selectedPrice}
           setSelectedPrice={setSelectedPrice}
           priceRanges={priceRanges}
+          className='Filter-view'
         />
       </section>
         <div className="home-grid">

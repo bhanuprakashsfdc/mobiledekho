@@ -1,29 +1,33 @@
 .bike-card {
-    background: #fff;
-    border: 1px solid #ddd;
-    padding: 1rem;
-    border-radius: 8px;
-    text-align: center;
-    transition: transform 0.3s;
-  }
-  
-  .bike-card img {
-    width: 100%;
-    height: auto;
-    border-radius: 8px 8px 0 0;
-  }
-  
-  .bike-card h3 {
-    margin: 1rem 0 0.5rem;
-    font-size: 1.5rem;
-  }
-  
-  .bike-card p {
-    font-size: 1rem;
-    color: #666;
-  }
-  
-  .bike-card:hover {
-    transform: scale(1.05);
-  }
-  
+  border: 1px solid #ddd;
+  padding: 1rem;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.bike-card img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.bike-card h3 {
+  margin: 1rem 0;
+}
+
+.bike-card p {
+  color: #666;
+}
+
+.bike-card button {
+  padding: 0.5rem 1rem;
+  background-color: #ff3d00;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.bike-card button:hover {
+  background-color: #e03500;
+}

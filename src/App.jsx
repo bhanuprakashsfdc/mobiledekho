@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
 /* Components */
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import ErrorPage from './components/ErrorPage/ErrorPage';
-import AdminPanel from './components/AdminPanel/AdminPanel'
+import AdminPanel from './components/AdminPanel/AdminPanel';
+import WishList from './components/Wishlist/Wishlist';
 
 /* Pages */
 import Home from './pages/Home/Home';
@@ -24,12 +25,24 @@ import Login from './pages/Login/Login';
 import Register from './pages/Register/Register';
 import UserProfile from './pages/UserProfile/UserProfile';
 import UserManagement from './pages/UserManagement/UserManagement'; 
-
+/* Analytics */
+import { trackPageView } from './utils/analytics';
+/* Language Translation 
+import { useTranslation } from 'react-i18next';
+*/
 import './App.css';
 
 const App = () => {
   const [user, setUser] = useState(null);
+  /* GA Code 
+  const location = useLocation();
 
+  useEffect(() => {
+    trackPageView(location.pathname);
+  }, [location]);
+  
+  const { t } = useTranslation();
+*/
   return (
     <Router>
           <div className="App">
@@ -45,7 +58,8 @@ const App = () => {
                   <Route path="/search" element={<SearchResults />} />
                   <Route path="/register" element={<Register />} />
                   <Route path="/profile" element={<UserProfile user={user} setUser={setUser} />} />
-                  <Route path="/Comparison" element={<Comparison />} />
+                  <Route path="/comparison" element={<Comparison />} />
+                  <Route path="/wishlist" element={<WishList user={user} />} />
                   
                   <Route path="/about" element={<About />} />
                   <Route path="/contact" element={<Contact />} />
