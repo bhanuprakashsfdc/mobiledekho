@@ -1,10 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Home.css';
 /* Importing other components */
 import Header from '../../components/Header/Header'
 import BikeCard from '../../components/BikeCard/BikeCard';
 import StoryCard from '../../components/WebStories/WebStories';
 import NewsCard from '../../components/BikeNews/BikeNews';
+import Pagination from '../../components/Pagination/Pagination';
+import BrandFilter from '../../components/BrandFilter/BrandFilter';
+import EngineFilter from '../../components/EngineFilter/EngineFilter';
+import PriceFilter from '../../components/PriceFilter/PriceFilter';
 
 /* Images Importing */
 import splender from '../../assets/images/hero/hero-splender.jpeg'
@@ -18,26 +22,62 @@ import chetak from '../../assets/images/electric/bajaj/chetak.jpeg';
 /* Importing mock data */
 import {bikes} from '../../data/bikes';
 
-const Home = (user, setUser) => {
+const Home = ({ user, setUser }) => {
   const [searchQuery, setSearchQuery] = useState('');
   const [searchResults, setSearchResults] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [selectedBrand, setSelectedBrand] = useState('');
+  const [selectedEngine, setSelectedEngine] = useState('');
+  const [selectedPrice, setSelectedPrice] = useState('');
+  const bikesPerPage = 6; // Number of bikes to display per page
 
-  const handleSearch = (query) => {
-    if (query) {
-      const results = bikes.filter(
-        (bike) => bike.name.toLowerCase().includes(query.toLowerCase())
-      );
+  const brands = [...new Set(bikes.map(bike => bike.name))];
+  const engines = [...new Set(bikes.map(bike => bike.specifications.engine))];
+  const priceRanges = ['<$2000', '$2000-$3000', '>$3000'];
+
+  useEffect(() => {
+    const handleSearch = (query) => {
+      let results = bikes;
+      
+      if (query) {
+        results = results.filter((bike) =>
+          bike.name.toLowerCase().includes(query.toLowerCase())
+        );
+      }
+
+      if (selectedBrand) {
+        results = results.filter((bike) => bike.brand === selectedBrand);
+      }
+
+      if (selectedEngine) {
+        results = results.filter((bike) => bike.specifications.engine === selectedEngine);
+      }
+
+      if (selectedPrice) {
+        if (selectedPrice === '<$2000') {
+          results = results.filter((bike) => parseInt(bike.specifications.price.replace('$', '')) < 2000);
+        } else if (selectedPrice === '$2000-$3000') {
+          results = results.filter((bike) => {
+            const price = parseInt(bike.specifications.price.replace('$', ''));
+            return price >= 2000 && price <= 3000;
+          });
+        } else if (selectedPrice === '>$3000') {
+          results = results.filter((bike) => parseInt(bike.specifications.price.replace('$', '')) > 3000);
+        }
+      }
+
       setSearchResults(results);
-    } else {
-      setSearchResults([]);
-    }
-  };
+    };
 
-  React.useEffect(() => {
     handleSearch(searchQuery);
-  }, [searchQuery]);
+  }, [searchQuery, selectedBrand, selectedEngine, selectedPrice]);
 
+  const totalPages = Math.ceil(searchResults.length / bikesPerPage);
 
+  const currentBikes = searchResults.slice(
+    (currentPage - 1) * bikesPerPage,
+    currentPage * bikesPerPage
+  );
 
   return (
     <div className="home">
@@ -49,27 +89,50 @@ const Home = (user, setUser) => {
             <button className="cta-button">Get Started</button>
           </div>
         </section>
+        <section className="filters">
+        <h2>Filters</h2>
+        <BrandFilter
+          selectedBrand={selectedBrand}
+          setSelectedBrand={setSelectedBrand}
+          brands={brands}
+        />
+        <EngineFilter
+          selectedEngine={selectedEngine}
+          setSelectedEngine={setSelectedEngine}
+          engines={engines}
+        />
+        <PriceFilter
+          selectedPrice={selectedPrice}
+          setSelectedPrice={setSelectedPrice}
+          priceRanges={priceRanges}
+        />
+      </section>
         <div className="home-grid">
         {searchQuery && (
         <section className="search-results">
           <h2>Search Results</h2>
           <div className="bike-list">
-            {searchResults.map((bike) => (
-              <BikeCard
-              key={bike.id}
-              id={bike.id}
-              image={bike.image}
-              name={bike.name}
-              description={bike.description}
-              />
-            ))}
+              {searchResults.map((bike) => (
+                <BikeCard
+                key={bike.id}
+                id={bike.id}
+                image={bike.image}
+                name={bike.name}
+                description={bike.description}
+                />
+              ))}
           </div>
+          <Pagination
+            currentPage={currentPage}
+            totalPages={totalPages}
+            onPageChange={setCurrentPage}
+          />
         </section>
       )}
         <section className="spotlight">
           <h2>Bikes in Spotlight</h2>
           <div className="bike-list">
-            {bikes.map((bike) => (
+          {currentBikes.map((bike) => (
               <BikeCard
                 key={bike.id}
                 id={bike.id}
@@ -79,6 +142,11 @@ const Home = (user, setUser) => {
               />
             ))}
           </div>
+          <Pagination
+            currentPage={currentPage}
+            totalPages={totalPages}
+            onPageChange={setCurrentPage}
+          />
         </section>
         <section className="electric-zone">
           <h2>Electric Zone</h2>

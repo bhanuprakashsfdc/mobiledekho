@@ -2,24 +2,26 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import './BikeDetails.css';
 import { bikes } from '../../data/bikes'; // Import mock data
+import Reviews from '../../components/Reviews/Reviews'; // Import Reviews component
+import ReviewForm from '../../components/ReviewForm/ReviewForm'; // Import ReviewForm component
+import BookingForm from '../../components/BookingForm/BookingForm'; // Import BookingForm component
 
 const BikeDetails = () => {
   const { id } = useParams();
   const [bike, setBike] = useState(null);
 
   useEffect(() => {
-    // Fetch bike details from mock data
-/*
-    const fetchBikeDetails = async () => {
-      const bikeData = bikes.find((bike) => bike.id === parseInt(id));
-      setBike(bikeData);
-    };
-    fetchBikeDetails();
-  }, [id]);
-*/
     const bikeData = bikes.find((bike) => bike.id === parseInt(id));
     setBike(bikeData);
-    }, [id]);
+  }, [id]);
+
+  const addReview = (review) => {
+    setBike((prevBike) => ({
+      ...prevBike,
+      reviews: [...prevBike.reviews, review],
+    }));
+  };
+
   if (!bike) {
     return <div>Loading...</div>;
   }
@@ -60,6 +62,9 @@ const BikeDetails = () => {
           ))}
         </div>
       </div>
+      <Reviews reviews={bike.reviews} /> {/* Display reviews */}
+      <ReviewForm bikeId={id} addReview={addReview} /> {/* Form to submit new reviews */}
+      <BookingForm bikeId={id} bikeName={bike.name} />
     </div>
   );
 };

@@ -48,8 +48,8 @@ const Footer = () => {
           <a href="#"><img src="google-play.png" alt="Google Play" /></a>
         </div>
         <div className="contact-info">
-          <p>Email: support@bikedekho.com</p>
-          <p>&copy; 2024 BikeDekho.com</p>
+          <p>Email: support@mobiledekhobhai.com</p>
+          <p>&copy; 2024 MobileDekhoBhai.com</p>
         </div>
       </div>
     </footer>

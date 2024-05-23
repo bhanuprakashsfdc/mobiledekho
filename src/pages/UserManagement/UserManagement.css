@@ -1,0 +1,40 @@
+.user-management {
+    padding: 2rem;
+  }
+  
+  .user-management h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  
+  .user-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+  }
+  
+  .user-item {
+    border: 1px solid #ddd;
+    padding: 1rem;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+  }
+  
+  .user-item button {
+    margin-top: 0.5rem;
+    padding: 0.5rem 1rem;
+    border: none;
+    background-color: #ff3d00;
+    color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .user-item button:hover {
+    background-color: #e03500;
+  }
+  

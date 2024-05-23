@@ -3,6 +3,8 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 /* Components */
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
+import ErrorPage from './components/ErrorPage/ErrorPage';
+import AdminPanel from './components/AdminPanel/AdminPanel'
 
 /* Pages */
 import Home from './pages/Home/Home';
@@ -21,6 +23,7 @@ import Feedback from './pages/Feedback/Feedback'
 import Login from './pages/Login/Login';
 import Register from './pages/Register/Register';
 import UserProfile from './pages/UserProfile/UserProfile';
+import UserManagement from './pages/UserManagement/UserManagement'; 
 
 import './App.css';
 
@@ -42,14 +45,17 @@ const App = () => {
                   <Route path="/search" element={<SearchResults />} />
                   <Route path="/register" element={<Register />} />
                   <Route path="/profile" element={<UserProfile user={user} setUser={setUser} />} />
-                  <Route path="/comparison" element={<Comparison />} />
+                  <Route path="/Comparison" element={<Comparison />} />
                   
                   <Route path="/about" element={<About />} />
                   <Route path="/contact" element={<Contact />} />
                   <Route path="/terms-and-conditions" element={<Terms />} />
                   <Route path="/privacy-policy" element={<Privacy />} />
                   <Route path="/feedback" element={<Feedback />} />
-                 
+
+                  <Route path="*" element={<ErrorPage />} />
+                  <Route path="/admin" element={<AdminPanel user={user} />} />
+                  <Route path="/user-management" element={<UserManagement user={user} />} />
                 </Routes>
               </main>
             <Footer />

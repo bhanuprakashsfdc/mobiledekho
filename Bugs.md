@@ -4,3 +4,4 @@
 3. Web Stories need to display 5 in single row and need to implement carsouel for it
 4. routing is not working on images
 5. Comparision is not working due to data modifircation
+6. Using dummy api which data is not generating lets jump to create new
