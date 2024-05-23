@@ -2,11 +2,13 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import './Header.css';
 import SearchBar from '../SearchBar/SearchBar';
+import Notifications from '../Notifications/Notifications';
 
 const Header = ({ setSearchQuery, user, setUser }) => {
   const [isNavOpen, setIsNavOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
-
+  /* Notifictions */
+  const [showNotifications, setShowNotifications] = useState(false);
   const toggleNav = () => {
     setIsNavOpen(!isNavOpen);
   };
@@ -55,6 +57,10 @@ const Header = ({ setSearchQuery, user, setUser }) => {
             <>
               <span>Welcome, {user.username}</span>
               <button onClick={handleLogout}>Logout</button>
+              <button onClick={() => setShowNotifications(!showNotifications)}>
+                Notifications
+              </button>
+              {showNotifications && <Notifications user={user} />}
             </>
           ) : (
             <>
